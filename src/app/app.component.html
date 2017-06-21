@@ -1,0 +1,15 @@
+<!-- search box -->
+<searchbox></searchbox>
+
+
+
+<!-- page title -->
+<!-- <h1 class="page_title" (click)="changeText()"><span id="page_title_inner" *ngFor="let pt of [pageTitle]" [@textTransition]>{{pageTitle}}</span></h1> -->
+
+<h1 class="page_title"><span *ngFor="let pt of [pageTitle]" [@swapTransition]><span id="page_title_inner">{{pageTitle}}</span></span></h1>
+
+
+<router-outlet></router-outlet>
+
+<a [routerLink]="['home']">Home</a>
+<a [routerLink]="['search/1']">Search</a>

@@ -1,0 +1,7 @@
+<div *ngFor="let movie of movies" class="search-result">
+  <figure class="search-result__poster" [ngsReveal]="revealConfig">    
+    <img *ngIf="movie.poster_path" src="{{movie.image_base_path}}/w500/{{movie.poster_path}}">
+  </figure>    
+  <h3 class="search-result__title" [ngsReveal]="revealConfig">{{movie.title}}</h3>
+  <a [routerLink]="['/movie/' + movie.id]" class="search-result__link">{{movie.id}}</a>
+</div>

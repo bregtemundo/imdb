@@ -1,0 +1,4 @@
+<form (submit)="search(term.value)" action="/search/term" class="searchbox">  
+  <input name="term" #term type="text" placeholder="Search" (keyup)="inputEnter(term.value)" autocomplete="off" class="searchbox__input">  
+  <button type="submit" class="searchbox__button">Search</button>  
+</form>

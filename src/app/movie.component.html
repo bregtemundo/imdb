@@ -1,0 +1,46 @@
+<div *ngIf="movie" class="movie-detail">
+  <div class="movie-detail__info" [ngStyle]="{'background-image': 'url(' + movie.image_base_path + '/w500/' + movie.poster_path + ')'}" >
+    <div class="movie-card">
+      <figure class="movie-card__poster">    
+        <img *ngIf="movie.poster_path" src="{{movie.image_base_path}}/w500/{{movie.poster_path}}">
+      </figure>   
+
+      <div class="movie-card__genres">
+        <h3 class="genres__genre" *ngFor="let genre of movie.genres">{{genre.name}}</h3>
+      </div>
+      <h1 class="movie-card__title">{{movie.title}}</h1>
+      <div class="movie-card__date">{{movie.release_date}}</div>
+      <p class="movie-card__overview">{{movie.overview}}</p>
+    </div>
+  </div>   
+</div>
+
+<div *ngIf="movie" class="movie-extras">
+  <h2 class="cast__title">cast</h2>
+
+  <ks-swiper-container [options]="castSliderOptions" class="cast-member">  
+    <ks-swiper-slide *ngFor="let cast of movie.cast">
+      <figure class="cast-member__image"><img *ngIf="cast.profile_path" src="{{movie.image_base_path}}/w500/{{cast.profile_path}}"></figure>
+      <h3 class="cast-member__name">{{cast.name}} is</h3>
+      <h2 class="cast-member__character">{{cast.character}}</h2>
+    </ks-swiper-slide>
+  </ks-swiper-container>
+
+
+  <h2 class="images__title">images</h2>
+
+  <ks-swiper-container [options]="mediaSliderOptions" class="images">  
+    <ks-swiper-slide *ngFor="let image of movie.images">
+      <figure class="images__image" *ngIf="image.file_path"><img src="{{movie.image_base_path}}/w500/{{image.file_path}}"></figure>      
+    </ks-swiper-slide>
+  </ks-swiper-container>
+
+  <h2 class="videos__title">videos</h2>
+
+  <div class="videos">      
+    <div *ngFor="let video of movie.videos" class="videos__video" >      
+      <youtube-player [videoId]="video.key" *ngIf="video.site=='YouTube'" (change)="onVideoStateChange($event)"></youtube-player>
+    </div>          
+  </div>
+
+</div>

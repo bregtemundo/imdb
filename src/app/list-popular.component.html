@@ -1,0 +1,13 @@
+<ks-swiper-container [options]="slideshowOptions" class="c-list_popular">  
+  <ks-swiper-slide *ngFor="let movie of movies">
+
+    <div class="movie-card movie-card--centered">      
+      <h1 class="movie-card__title">{{movie.title}}</h1>
+      <div class="movie-card__date">{{movie.release_date}}</div>
+      <p class="movie-card__overview">{{movie.overview}}</p>
+    </div>
+
+    <figure class="poster"><div class="poster-inner"><div class="shadow"></div><img src="{{movie.image_base_path}}/w500/{{movie.poster_path}}" ></div></figure>
+    
+  </ks-swiper-slide>
+</ks-swiper-container>
