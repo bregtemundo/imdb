@@ -30,12 +30,12 @@
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
 
-      'angular2-swiper': 'node_modules/angular2-swiper',
-      'swiper': 'node_modules/swiper',
-      'jquery': 'node_modules/jquery',
-      'scrollreveal': 'node_modules/scrollreveal',
-      'ng-scrollreveal': 'node_modules/ng-scrollreveal',
-      'ng2-youtube-player': 'node_modules/ng2-youtube-player'
+      'angular2-swiper': 'npm:angular2-swiper',
+      'swiper': 'npm:swiper',
+      'jquery': 'npm:jquery',
+      'scrollreveal': 'npm:scrollreveal',
+      'ng-scrollreveal': 'npm:ng-scrollreveal',
+      'ng2-youtube-player': 'npm:ng2-youtube-player'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
