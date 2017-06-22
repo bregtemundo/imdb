@@ -9,23 +9,19 @@ import { swapTransition } from './router.animations';
 
 @Component({
   selector: 'my-app',
-  templateUrl: './app.component.html',  
-
+  templateUrl: './app.component.html', 
   animations: [swapTransition()]
 })
 export class AppComponent  {   
-  singleMovie:Movie;
-  errorMessage: string = '';  
-  pageTitle:string = '';
 
-  name = ''; 
+  errorMessage: string = '';  
+  pageTitle:string = '';  
 
   constructor(private movieService: MovieService, private configService: ConfigService, private router: Router){
-    // Will fire everytime other component use the setter this.ls.setLogged()
+    // look for changes in pageTitle (through ConfigService)
     this.configService.getPageTitle().subscribe((title: string) => {       
        this.pageTitle = title;
     });
-
   }
 
   ngOnInit() {

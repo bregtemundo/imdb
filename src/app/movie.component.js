@@ -45,7 +45,12 @@ var MovieComponent = (function () {
             _this.movie = p;
             //set page title
             _this.configService.setPageTitle(_this.movie.title);
+            //trick to help performance (wait for transition to show videos)
+            setTimeout(_this.addVideos.bind(_this, _this.movie.videos), 1200);
         }, function (e) { return _this.errorMessage = e; });
+    };
+    MovieComponent.prototype.addVideos = function (videos) {
+        this.videos = videos;
     };
     MovieComponent.prototype.onVideoStateChange = function (event) {
         var playCodes = [3, 1];

@@ -12,7 +12,7 @@ var core_1 = require("@angular/core");
 var Subject_1 = require("rxjs/Subject");
 var ConfigService = (function () {
     function ConfigService() {
-        this.pageTitle = 'Welkcm';
+        this.pageTitle = '';
         this.subject = new Subject_1.Subject();
     }
     ConfigService.prototype.setPageTitle = function (title) {

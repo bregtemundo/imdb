@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { trigger, style, transition, animate, group } from '@angular/animations';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 import { MovieService } from './movie.service';
 import { Movie } from './movie';

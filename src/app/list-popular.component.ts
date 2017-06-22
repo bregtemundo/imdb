@@ -26,6 +26,7 @@ export class ListPopularComponent  {
   
 
   constructor(private movieService: MovieService, private configService: ConfigService){
+    //config options for swiper
     this.slideshowOptions = {
       slidesPerView: 1,
       loop: false,
@@ -37,7 +38,7 @@ export class ListPopularComponent  {
     };
 
 
-    //get list of pop movies
+    //get list of popular movies
     let res = movieService.getPopularMovies().subscribe(
       ( p ) => { this.movies = p; this.loaded = true, setTimeout (this.onInit.bind(this), 1) },
       ( e ) => this.errorMessage = e 
@@ -60,7 +61,7 @@ export class ListPopularComponent  {
 
   moveSlide(swiper:any, index:number, progress:number, duration:string='0s' ){
     let slide = swiper.slides[index];
-    let translate, posterTranslate, posterScale, boxShadow, boxShadowOpacity, xy;
+    let translate, posterTranslate, posterScale, xy;
 
     //get the progress of single slide
     let i = index-1;
@@ -99,22 +100,12 @@ export class ListPopularComponent  {
 
   }
 
-  onInit() {
-       
-    console.log(this.swiperContainer.swiper.slides.length)
-    this.swiperContainer.swiper.update(true);
-
-    /*
-    this.sliderProgress = 0; 
-    alert("ini");
-
-    //move single slide
-    for (var i = 0; i < swiper.slides.length; i++){
-      this.moveSlide(swiper, i, this.sliderProgress);      
-    }
-    */
+  //initialise swiper
+  onInit() {    
+    this.swiperContainer.swiper.update(true);   
   }
 
+  //when swiper moving
   onSetTranslate (swiper:any, translate:any){    
     //calculate slide progress
     let newProgress = swiper.progress*100;
@@ -132,6 +123,7 @@ export class ListPopularComponent  {
     }
   }
 
+  //when swiper goto or snap into place
   onSetTransition (swiper:any, transition:any){    
     let newProgress = swiper.progress*100;
     this.sliderProgress = newProgress;    

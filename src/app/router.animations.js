@@ -8,20 +8,6 @@ function swapTransition() {
     return textSwap();
 }
 exports.swapTransition = swapTransition;
-function slideToRight() {
-    return animations_1.trigger('routerTransition', [
-        animations_1.state('void', animations_1.style({ position: 'fixed', width: '100%' })),
-        animations_1.state('*', animations_1.style({ position: 'fixed', width: '100%' })),
-        animations_1.transition(':enter', [
-            animations_1.style({ transform: 'translateX(-100%)' }),
-            animations_1.animate('0.5s ease-in-out', animations_1.style({ transform: 'translateX(0%)' }))
-        ]),
-        animations_1.transition(':leave', [
-            animations_1.style({ transform: 'translateX(0%)' }),
-            animations_1.animate('0.5s ease-in-out', animations_1.style({ transform: 'translateX(100%)' }))
-        ])
-    ]);
-}
 function slideToLeft() {
     return animations_1.trigger('routerTransition', [
         animations_1.state('void', animations_1.style({ position: 'fixed', width: '100%' })),
@@ -32,35 +18,7 @@ function slideToLeft() {
         ]),
         animations_1.transition(':leave', [
             animations_1.style({ transform: 'translateX(0%)', overflow: 'hidden' }),
-            animations_1.animate('.8s cubic-bezier(0.165, 0.840, 0.440, 1.000)', animations_1.style({ transform: 'translateX(-100%)' }))
-        ])
-    ]);
-}
-function slideToBottom() {
-    return animations_1.trigger('routerTransition', [
-        animations_1.state('void', animations_1.style({ position: 'fixed', width: '100%', height: '100%' })),
-        animations_1.state('*', animations_1.style({ position: 'fixed', width: '100%', height: '100%' })),
-        animations_1.transition(':enter', [
-            animations_1.style({ transform: 'translateY(-100%)' }),
-            animations_1.animate('0.5s ease-in-out', animations_1.style({ transform: 'translateY(0%)' }))
-        ]),
-        animations_1.transition(':leave', [
-            animations_1.style({ transform: 'translateY(0%)' }),
-            animations_1.animate('0.5s ease-in-out', animations_1.style({ transform: 'translateY(100%)' }))
-        ])
-    ]);
-}
-function slideToTop() {
-    return animations_1.trigger('routerTransition', [
-        animations_1.state('void', animations_1.style({ position: 'fixed', width: '100%', height: '100%' })),
-        animations_1.state('*', animations_1.style({ position: 'fixed', width: '100%', height: '100%' })),
-        animations_1.transition(':enter', [
-            animations_1.style({ transform: 'translateY(100%)' }),
-            animations_1.animate('0.5s ease-in-out', animations_1.style({ transform: 'translateY(0%)' }))
-        ]),
-        animations_1.transition(':leave', [
-            animations_1.style({ transform: 'translateY(0%)' }),
-            animations_1.animate('0.5s ease-in-out', animations_1.style({ transform: 'translateY(-100%)' }))
+            animations_1.animate('1.8s cubic-bezier(0.165, 0.840, 0.440, 1.000)', animations_1.style({ transform: 'translateX(-100%)' }))
         ])
     ]);
 }

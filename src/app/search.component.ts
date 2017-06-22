@@ -16,11 +16,12 @@ import { ConfigService } from './config.service';
 export class SearchComponent  {   
   sub:any;  
   searchTerm: string;
-  movies: Movie[] = [];
+  movies: Movie[] = [];  
   errorMessage:string = "";
   revealConfig:any;
   
   constructor(private route: ActivatedRoute, private movieService: MovieService, private configService: ConfigService){
+    //config options for the reveal on scroll anim
     this.revealConfig = { viewFactor: .3, duration: 1500, distance: '200px', scale:1, container: 'search' };
   }
 
@@ -42,7 +43,7 @@ export class SearchComponent  {
     //get list of pop movies
     let res = this.movieService.searchMovies(term).subscribe(
       ( p:any ) => { 
-        this.movies = p 
+        this.movies = p;
         if(this.movies.length <= 0) {
           //set page title
           this.configService.setPageTitle("no results!");

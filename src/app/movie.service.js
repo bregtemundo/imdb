@@ -75,37 +75,4 @@ MovieService = __decorate([
     __metadata("design:paramtypes", [http_1.Jsonp])
 ], MovieService);
 exports.MovieService = MovieService;
-/*
-function mapPersons(response:Response): Person[]{
-  //throw new Error('ups! Force choke!');
-
-  // The response of the API has a results
-  // property with the actual results
-  return response.json().results.map(toPerson)
-}
-
-function toPerson(r:any): Person{
-  let person = <Person>({
-    id: extractId(r),
-    url: r.url,
-    name: r.name,
-    weight: Number.parseInt(r.mass),
-    height: Number.parseInt(r.height),
-  });
-  console.log('Parsed person:', person);
-  return person;
-}
-
-// to avoid breaking the rest of our app
-// I extract the id from the person url
-function extractId(personData:any){
-  let extractedId = personData.url.replace('http://swapi.co/api/people/','').replace('/','');
-  return parseInt(extractedId);
-}
-
-function mapPerson(response:Response): Person{
-   // toPerson looks just like in the previous example
-   return toPerson(response.json());
-}
-*/
 //# sourceMappingURL=movie.service.js.map

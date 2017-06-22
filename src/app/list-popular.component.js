@@ -23,6 +23,7 @@ var ListPopularComponent = (function () {
         this.loaded = false;
         this.sliderProgress = 0;
         this.progress1 = '';
+        //config options for swiper
         this.slideshowOptions = {
             slidesPerView: 1,
             loop: false,
@@ -32,7 +33,7 @@ var ListPopularComponent = (function () {
             onSetTransition: this.onSetTransition.bind(this),
             virtualTranslate: true,
         };
-        //get list of pop movies
+        //get list of popular movies
         var res = movieService.getPopularMovies().subscribe(function (p) { _this.movies = p; _this.loaded = true, setTimeout(_this.onInit.bind(_this), 1); }, function (e) { return _this.errorMessage = e; });
         //set page title
         configService.setPageTitle("Most popular movies");
@@ -48,7 +49,7 @@ var ListPopularComponent = (function () {
     ListPopularComponent.prototype.moveSlide = function (swiper, index, progress, duration) {
         if (duration === void 0) { duration = '0s'; }
         var slide = swiper.slides[index];
-        var translate, posterTranslate, posterScale, boxShadow, boxShadowOpacity, xy;
+        var translate, posterTranslate, posterScale, xy;
         //get the progress of single slide
         var i = index - 1;
         var slideProgress = (progress - (i * (100 / (swiper.slides.length - 1)))) / (100 / (swiper.slides.length - 1));
@@ -78,19 +79,11 @@ var ListPopularComponent = (function () {
             transitionDuration: duration
         });
     };
+    //initialise swiper
     ListPopularComponent.prototype.onInit = function () {
-        console.log(this.swiperContainer.swiper.slides.length);
         this.swiperContainer.swiper.update(true);
-        /*
-        this.sliderProgress = 0;
-        alert("ini");
-    
-        //move single slide
-        for (var i = 0; i < swiper.slides.length; i++){
-          this.moveSlide(swiper, i, this.sliderProgress);
-        }
-        */
     };
+    //when swiper moving
     ListPopularComponent.prototype.onSetTranslate = function (swiper, translate) {
         //calculate slide progress
         var newProgress = swiper.progress * 100;
@@ -105,6 +98,7 @@ var ListPopularComponent = (function () {
             this.moveSlide(swiper, i, this.sliderProgress);
         }
     };
+    //when swiper goto or snap into place
     ListPopularComponent.prototype.onSetTransition = function (swiper, transition) {
         var newProgress = swiper.progress * 100;
         this.sliderProgress = newProgress;

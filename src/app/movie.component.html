@@ -38,7 +38,7 @@
   <h2 class="videos__title">videos</h2>
 
   <div class="videos">      
-    <div *ngFor="let video of movie.videos" class="videos__video" >      
+    <div *ngFor="let video of videos" class="videos__video" >      
       <youtube-player [videoId]="video.key" *ngIf="video.site=='YouTube'" (change)="onVideoStateChange($event)"></youtube-player>
     </div>          
   </div>

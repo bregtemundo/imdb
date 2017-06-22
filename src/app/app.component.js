@@ -21,8 +21,7 @@ var AppComponent = (function () {
         this.router = router;
         this.errorMessage = '';
         this.pageTitle = '';
-        this.name = '';
-        // Will fire everytime other component use the setter this.ls.setLogged()
+        // look for changes in pageTitle (through ConfigService)
         this.configService.getPageTitle().subscribe(function (title) {
             _this.pageTitle = title;
         });

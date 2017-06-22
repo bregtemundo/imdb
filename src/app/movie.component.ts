@@ -17,6 +17,7 @@ export class MovieComponent  {
   sub:any;  
   movieId: number;
   movie: Movie;
+  videos:any[];
   errorMessage:string = "";
   castSliderOptions:any;
   mediaSliderOptions:any;
@@ -48,12 +49,20 @@ export class MovieComponent  {
     //get list of pop movies
     let res = this.movieService.getMovie(id).subscribe(
       ( p:any ) => {         
-        this.movie = p;        
+        this.movie = p;      
+
         //set page title
         this.configService.setPageTitle(this.movie.title);        
+
+        //trick to help performance (wait for transition to show videos)
+        setTimeout(this.addVideos.bind(this, this.movie.videos) ,1200);
       },
       ( e:string ) => this.errorMessage = e
     );     
+  }
+
+  addVideos(videos:any) {
+    this.videos = videos;
   }
 
   onVideoStateChange(event:any) {    

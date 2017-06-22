@@ -6,10 +6,9 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class ConfigService{
-  private pageTitle:string = 'Welkcm';
+  private pageTitle:string = '';
   private subject:Subject<String> = new Subject<String>();
   
-
   constructor(){
   }
 

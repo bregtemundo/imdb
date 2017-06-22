@@ -20,6 +20,7 @@ var SearchComponent = (function () {
         this.configService = configService;
         this.movies = [];
         this.errorMessage = "";
+        //config options for the reveal on scroll anim
         this.revealConfig = { viewFactor: .3, duration: 1500, distance: '200px', scale: 1, container: 'search' };
     }
     SearchComponent.prototype.ngOnInit = function () {
