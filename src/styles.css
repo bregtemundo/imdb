@@ -119,14 +119,14 @@ my-app:empty + .bootscreen h1 {
 
 .c-list_popular .swiper-slide .poster {
   float: right;
-  display: none;
+  /*display: none;*/
 }
 
 
 .c-list_popular .swiper-slide-active .poster,
 .c-list_popular .swiper-slide-next .poster,
 .c-list_popular .swiper-slide-prev .poster {
-  display: block;
+  /*display: block;*/
   /*
   width:10px;
   height:10px;  

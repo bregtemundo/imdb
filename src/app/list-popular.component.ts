@@ -17,12 +17,10 @@ import { ConfigService } from './config.service';
 export class ListPopularComponent  { 
   
   movies: Movie[] = [];  
-  errorMessage: string = '';
-  loaded:Boolean = false;
+  errorMessage: string = '';  
   @ViewChild(KSSwiperContainer) swiperContainer: KSSwiperContainer;
   slideshowOptions:any;
-  sliderProgress:number = 0; 
-  progress1:string = ''; 
+  sliderProgress:number = 0;   
   
 
   constructor(private movieService: MovieService, private configService: ConfigService){
@@ -31,7 +29,7 @@ export class ListPopularComponent  {
       slidesPerView: 1,
       loop: false,
       spaceBetween: 5,      
-      touchRatio: 1.5,        
+      touchRatio: 1,        
       onSetTranslate: this.onSetTranslate.bind(this),
       onSetTransition: this.onSetTransition.bind(this),     
       virtualTranslate: true,     
@@ -40,7 +38,7 @@ export class ListPopularComponent  {
 
     //get list of popular movies
     let res = movieService.getPopularMovies().subscribe(
-      ( p ) => { this.movies = p; this.loaded = true, setTimeout (this.onInit.bind(this), 1) },
+      ( p ) => { this.movies = p; setTimeout (this.onInit.bind(this), 1) },
       ( e ) => this.errorMessage = e 
     );   
 

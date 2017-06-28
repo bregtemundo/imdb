@@ -20,21 +20,19 @@ var ListPopularComponent = (function () {
         this.configService = configService;
         this.movies = [];
         this.errorMessage = '';
-        this.loaded = false;
         this.sliderProgress = 0;
-        this.progress1 = '';
         //config options for swiper
         this.slideshowOptions = {
             slidesPerView: 1,
             loop: false,
             spaceBetween: 5,
-            touchRatio: 1.5,
+            touchRatio: 1,
             onSetTranslate: this.onSetTranslate.bind(this),
             onSetTransition: this.onSetTransition.bind(this),
             virtualTranslate: true,
         };
         //get list of popular movies
-        var res = movieService.getPopularMovies().subscribe(function (p) { _this.movies = p; _this.loaded = true, setTimeout(_this.onInit.bind(_this), 1); }, function (e) { return _this.errorMessage = e; });
+        var res = movieService.getPopularMovies().subscribe(function (p) { _this.movies = p; setTimeout(_this.onInit.bind(_this), 1); }, function (e) { return _this.errorMessage = e; });
         //set page title
         configService.setPageTitle("Most popular movies");
     }

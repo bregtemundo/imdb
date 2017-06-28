@@ -9,16 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
 var movie_service_1 = require("./movie.service");
 var config_service_1 = require("./config.service");
 var router_animations_1 = require("./router.animations");
 var AppComponent = (function () {
-    function AppComponent(movieService, configService, router) {
+    function AppComponent(movieService, configService) {
         var _this = this;
         this.movieService = movieService;
         this.configService = configService;
-        this.router = router;
         this.errorMessage = '';
         this.pageTitle = '';
         // look for changes in pageTitle (through ConfigService)
@@ -26,14 +24,6 @@ var AppComponent = (function () {
             _this.pageTitle = title;
         });
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.router.events.subscribe(function (evt) {
-            if (!(evt instanceof router_1.NavigationEnd)) {
-                return;
-            }
-            setTimeout(function () { return $("html,body").animate({ scrollTop: 0 }, 500, "swing"); }, 200);
-        });
-    };
     AppComponent.prototype.changeText = function () {
         this.configService.setPageTitle("" + Math.random());
     };
@@ -45,7 +35,7 @@ AppComponent = __decorate([
         templateUrl: './app.component.html',
         animations: [router_animations_1.swapTransition()]
     }),
-    __metadata("design:paramtypes", [movie_service_1.MovieService, config_service_1.ConfigService, router_1.Router])
+    __metadata("design:paramtypes", [movie_service_1.MovieService, config_service_1.ConfigService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
