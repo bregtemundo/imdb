@@ -27,7 +27,7 @@
       '@angular/platform-browser/animations': 'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.js',
 
       // other libraries
-      'rxjs':                      'npm:rxjs',
+      'rxjs':                      'npm:rxjs@5.0.1',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
 
       'angular2-swiper': 'node_modules/angular2-swiper',
